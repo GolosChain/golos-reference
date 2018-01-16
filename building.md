@@ -1,5 +1,7 @@
 # Building Golos
 
+GolosChain requires to be cloned with [Git](https://git-scm.com) version greater than 2.9 to prevent actual submodule data emplacement into .git directory.
+
 ## Compile-Time Options (cmake)
 
 ### CMAKE_BUILD_TYPE=[Release/Debug]
