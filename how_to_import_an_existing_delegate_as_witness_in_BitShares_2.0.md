@@ -9,7 +9,7 @@ Let's obtain the `<publickey>`:
     Block Signing Key: <publickey>
     [...]
 
-**Remark**: Public keys in the BitShares network have the prefix `BTS`. Hence, in the case of the Graphene testnet you should replace `BTS` by `GPH`.
+**Remark**: Public keys in the BitShares network have the prefix `GOLOS`. Hence, in the case of the Graphene testnet you should replace `GOLOS` by `GPH`.
 
 and the corresponding `<wifkey>`:
 

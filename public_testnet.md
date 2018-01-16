@@ -16,7 +16,7 @@ Run following commands:
 
     cp genesis/aug-17-test-genesis-c.json genesis/gnew1.json
     sed -i -e 's/"block_interval": 1/"block_interval": 5/' genesis/gnew1.json
-    sed -i -e 's/"\(block_signing_key\|owner\|owner_key\|active_key\)": "BTS/"\1": "GPH/' genesis/gnew1.json
+    sed -i -e 's/"\(block_signing_key\|owner\|owner_key\|active_key\)": "GOLOS/"\1": "GPH/' genesis/gnew1.json
 
     PREFIX=aaaa
     programs/genesis_util/genesis_update -g genesis/gnew1.json -o genesis/gnew2.json --dev-account-count=1000 --dev-balance-count=200 --dev-key-prefix "$PREFIX"
