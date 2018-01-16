@@ -1,4 +1,3 @@
-
 Creating a new FBA involves some manual steps, as well as a hardfork which sends the fees to the FBA.
 
 - Create the FBA asset issuer account (or use existing account).
