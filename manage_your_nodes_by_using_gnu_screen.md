@@ -1,4 +1,4 @@
-When i started working in the bitshares-core one of the first problems i found after building a node was a proper way to run a node in the background.
+When I started working in the bitshares-core one of the first problems I've found after building a node was a proper way to run a node in the background.
 
 When a node is started, it needs to sync all the chain and this takes time, when the ssh connection between my pc and my server is lost then I need to start all over again.
 
@@ -6,7 +6,7 @@ Also, this will help when you want to keep your node running and turn off your p
 
 This is a very practical setup for developers and nodemasters that connect to their servers by ssh and run nodes in there.
 
-Meet GNU Screen https://www.gnu.org/software/screen/
+Meet [GNU Screen](https://www.gnu.org/software/screen/)
 
 We will only use just a few commands for our needs.
 
