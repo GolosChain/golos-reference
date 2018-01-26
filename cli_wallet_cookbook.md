@@ -6,11 +6,11 @@ own private network.  To do this, launch a witness node to generate blocks.  In
 the directory where you built your graphene distribution:
 
 ````
-cd programs/witness_node
-# if you have previously run a witness node, you may need to remove the old blockchain.
+cd programs/golosd
+# if you have previously run a daemon, you may need to remove the old blockchain.
 # at this early stage, new commits often make it impossible to reuse an old database
 #   rm -r witness_node_data_dir
-./witness_node --rpc-endpoint "127.0.0.1:8090" --enable-stale-production -w \""1.6.0"\" \""1.6.1"\" \""1.6.2"\" \""1.6.3"\" \""1.6.4"\"
+./golosd --rpc-endpoint "127.0.0.1:8090" --enable-stale-production -w \""1.6.0"\" \""1.6.1"\" \""1.6.2"\" \""1.6.3"\" \""1.6.4"\"
 ````
 The initial genesis state has ten pre-configured delegates (1.6.0-9) that all
 use the same private key to sign their blocks, and the witness node has the
@@ -38,7 +38,7 @@ unlocked >>>
 
 ### Account Management
 To create a new account, you will need to start with an existing account with
-some of the CORE asset that will pay the transaction fee registering your new
+some of the GOLOS asset that will pay the transaction fee registering your new
 account.  The account paying this fee will be the *Registrar*.
 
 In the initial genesis state, there are about a dozen pre-existing accounts.
@@ -72,7 +72,7 @@ funds in the system.  Let's import that here:
 ```
 unlocked >>> import_balance nathan [5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3] true
 unlocked >>> list_account_balances nathan
-10000000000 CORE
+10000000000 GOLOS
 ```
 So we now have an account to act as registrar and it has plenty of funds to pay
 the registration key for new accounts.  Only lifetime (prime?) members are allowed
@@ -100,10 +100,10 @@ control both `nathan` and `my-account`.
 
 ### Transferring Currency
 Your newly-created account doesn't have any funds in it yet, the `nathan`
-account still has all the money.  To send some CORE from `nathan` to your
+account still has all the money.  To send some GOLOS from `nathan` to your
 account, use the `transfer` command:
 ```
-unlocked >>> transfer nathan my-account 10000 CORE "have some CORE" true
+unlocked >>> transfer nathan my-account 10000 GOLOS "have some GOLOS" true
 ```
 ### Becoming a Witness
 To become a witness and be able to produce blocks, you first need to create a

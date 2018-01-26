@@ -1,4 +1,3 @@
-
 Architecture
 ------------
 
@@ -29,8 +28,8 @@ Derived property in Graphene core consists of:
 - BitAssets
 - Bonds
 - Options
-
-(TODO:  Other types of derived property, e.g. escrow?)
+- Escrows
+- Other types of derived property
 
 Applications which leverage the Graphene blockchain for consensus may implement their own base and/or derived virtual property.
 (TODO:  explain how application-level virtual property may interact with core property.)
@@ -68,92 +67,6 @@ Differences from BitShares
 - Short expiration time.  TODO:  Explain this.
 
 - Multisig uses authority system.
-
-Authority system
-----------------
-
-TODO:  Document this (sort of "multisig for humans")
-
-Referral system
----------------
-
-TODO:  Document this
-
-Proposed tx's
--------------
-
-TODO:  Document this, including very exact semantics
-
-Custom ops
-----------
-
-A custom op is a no-op with data.
-
-Custom objects
---------------
-
-A custom object is an object with data and an owner, the owner can update the data.  TODO:  Is this actually a thing?
-
-List of object types
---------------------
-
-TODO:  Write the list
-
-Relative ID's
--------------
-
-TODO:  Document limitations of relative ID's.  They can only be used in some operations -- which operations?  TODO:  Fix this limitation
-
-Name blinding
--------------
-
-- This is `theoreticalbts` idea for an interesting feature
-
-This is a feature implemented in Namecoin.  It is a commit/reveal procedure to prevent front-running of name registration.
-When registering a new name, you can *commit* `(H(name + separator + salt), recipient_pubkey)` in one tx, then within 24 hours,
-*reveal* `salt` in another tx to claim the name.  If multiple claims to the same name are submitted, the claim with the
-*earliest commit time* is given priority.  NB the recipient pubkey is given in the commit, not the reveal, so someone else
-front-running your reveal pays a fee but doesn't gain the name.
-
-Note, this can result in situations where account name is revoked (because it tried to claim a name that was revealed earlier).
-So the named object (e.g. account, but are account objects the only named objects in Graphene?) still exists, but just becomes
-nameless.
-
-Namespacing
------------
-
-- This is `theoreticalbts` idea for an interesting feature
-
-Many user-bases already exist, and some of these may have name collisions.  Common names like `dan` or `nathan` are probably
-already registered on Github, Linkedin, Twitter, Google, Yahoo, etc. and probably belong to different people on all these services.
-If our business model is to convince online services to migrate their user bases, then we should give them a way to namespace these
-accounts.  E.g. `github/dan`, `github/nathan` etc., in general a registration of `a/b` must be approved by account `a`.
-
-Should this reflect referral structure.  For example if `a` is your referrer, then your name is `a/b`.  New accounts are always `a/b`,
-but can be promoted to `b` by buying out.  Hmm, seems like the buyout should also give you an opportunity to change your name (since
-root NS might have conflicts), and this change should be name-blinded.
-
-Wrapped transactions
---------------------
-
-- This is `theoreticalbts` idea for an interesting feature
-
-In traditional exchanges, unfilled orders are free -- market fees are only charged on matched orders.  We have to charge a minimal
-amount per unfilled order as anti-spam measure.  However, we can imagine an e(x)change provider (X)avier who hosts orders on
-an external server.  When Alice wants to place an order, she creates an order transaction with no fee, then uploads the order to
-Xavier's server; Xavier publishes it (and Xavier will need to implement alternative anti-spam measures to protect his server from
-abuse).
-
-When Bob wants to match Alice's order, he provides the fee.
-
-Here's my idea for how to implement this without substantially re-working the fee structure.  We create a special "community" account
-(TODO:  better name) with a special flag which signals that *no authority* is needed to withdraw funds from it.  Alice signs her tx
-paying the fee from the community account, now the only reason her tx is invalid is because the community account has no funds.  Now
-Bob can create a *wrapping transaction* containing his matching order, funding for the community account, and Alice's tx.  The wrapped
-tx is signed by Bob.  Crucially, doing it this way means no one can insert a tx taking the money from the community account in between
-Bob's operation funding the community account and Alice's transaction paying it.
-
-Can we do this with proposed tx's?  We have to think very carefully about the exact semantics of proposed tx's.
 
 Account porting gateways
 ------------------------

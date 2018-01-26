@@ -1,23 +1,12 @@
 Purpose
 -------
 
-This is a list of some design issues based on my (@theoreticalbts) review of White Rabbit.  Feel free to add or delete from this.
-
-Sub-objects
------------
-
-EDIT:  Seems like this has already implemented as "ID spaces".  Keeping this information here so it can eventually be incorporated into a spec.
-
-Several objects such as `delegate_vote_object` (keeping track of vote totals for a delegate) and `balances` (keeping track of balances for an account) are kept in their own object ID.  This is not necessary for chain semantics, rather it is optimizing the memory usage of the undo state.
-
-I think it is better to avoid splitting out these sub-objects in the blockchain specification, instead have a separate "local object ID space" local to each node where sub-objects are kept.  So from the blockchain spec level, a create account operation says "create an account object including balances."  But from the blockchain implementation level, a create account operation says "create an account object in the blockchain ID space, then create a balance object in the local ID space, then put a link the blockchain object's balances data field pointing to the local object."  Changing the balance would then request an immutable handle to the account object, through which you could get the local ID, then request a mutable handle to the balances object.  Achieving the desired result of having a balance change only require the undo state to copy the balances instead of the whole account object.
-
-The strength of implementing this with a local object ID space is that we can later split things out into sub-objects, or join sub-objects into their containing object, without a hardfork.  Since the local ID's are never exposed outside the local node's implementation of the blockchain.
+This is a list of some design issues based on @theoreticalbts review of White Rabbit.  Feel free to add or delete from this.
 
 Tx size optimizations for TaPoS validation
 ------------------------------------------
 
-EDIT:  I (@theoreticalbts) have taken a crack at this, it compiles but is not yet tested.
+EDIT:  @theoreticalbts have taken a crack at this, it compiles but is not yet tested.
 
 We have this:
 
@@ -34,16 +23,6 @@ We have this:
 First, we should simply include the full block hash at height `ref_block_num` in the computation of `digest()`, thus the tx will fail to validate unless the block ID at the given height is a match.  Allowing to completely eliminate `ref_block_prefix` and also avoiding the potential security holes from using only 32 bits in `ref_block_prefix` field.
 
 Second, the `ref_block_num` itself can be reduced to 16 bits as follows:  Simply specify the low 16 bits of the reference block height, and only validate against the most recent block whose low 16 bits match.  A more recent block whose block height has the same low 16 bits as the reference block height cannot appear until 64K blocks after the reference block, in which case the transaction is over a day old and will fail due to being expired (unless we decrease block time below 2 seconds).
-
-processed_transaction has no purpose
-------------------------------------
-
-The `processed_transaction` is included in a block.  This is too much data.  Since object ID's are assigned sequentially and deterministically, this is totally redundant information.  A single note specifying the first ID to be allocated in the block header would suffice, but even that much is redundant.  Once we have over a couple million objects, storing the object ID's will inflate all object creation ops by four bytes totally unnecessarily.
-
-Block header does not support SPV
----------------------------------
-
-We should be able to verify blockchain using headers only.  Thus we need to have hash of tx's in block header instead of `vector<processed_transaction>`.
 
 Cache block hashes
 ------------------

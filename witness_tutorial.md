@@ -1,5 +1,5 @@
 This document serves as an introduction on how to become an actively block
-producing witness in in the BitShares2.0 network. Please note that there
+producing witness in in the GolosChain network. Please note that there
 currently is no public testnet available, hence, this howto will fail at the
 last few steps. However, we feel that we should inform interested parties about
 how to prepare their machines for participation as witness as soon as possible.
@@ -7,104 +7,6 @@ how to prepare their machines for participation as witness as soon as possible.
 We will have to import an existing account from the BitShares 0.9 network and
 add some initial funds for the witness registration fee. After that, we will
 create, configure and run a witness node.
-
-## Preparations in BitShares 0.9 network
-
-### Extracting an account from BitShares 0.9
-To create a new account, you will need to start with an existing account with
-some of the GOLOS asset that will pay the transaction fee registering your new
-witness. Get your `<wif>` key from BitShares 0.9 via
-
-    BitShares0.9: >>> wallet_dump_account_private_key <accountname> "owner_key"
-    "5....."  # the <owner wif key>
-
-### Extracting balances from BitShares 0.9
-The key we have extracted previously only gives access to the registered name.
-Hence, none of the accounts in the genesis block have balances in them. In the
-first BitShares network, accounts were less tightly coupled to balances.
-Balances were associated with public keys, and an account could have hundreds of
-public keys with balances (or, conversely, public keys with balances could exist
-without any account associated with them). 
-
-In order to get a witness registered we need to import approximately $120 worth of
-GOLOS into the BitShares 2.0 client later.
-
-#### Manually extracting private keys (most secure way)
-We can extract the required private keys that hold funds this way. First we get
-all balance ids from an account via:
-
-    BitShares0.9: >>> wallet_account_balance_ids <accountname>
-    [[
-    "xeroc",[
-      "BTSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-      "BTSBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-          ...
-    ]
-      ]
-    ]
-
-Each of these balances can be investigated via:
-
-    BitShares0.9: >>> blockchain_get_balance BTSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-    ....
-    "asset_id": 0,                                     <- asset_id (0: GOLOS)
-    "data": {
-      "owner": "BTSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWNER", <- address
-          ...
-      "balance": 0,                                        <- balance
-      ...
-
-The required part (the owner of the balance) is denoted as `owner`.
-Pick one or more address for GOLOS balances and dump the corresponding private key(s) with:
-
-    BitShares0.9: >>> wallet_dump_private_key BTSOOOOOOOOOOOOOOOOOOOOOOOOOOOOOWNER
-    "5......." # the <balance wif key>
-
-Note: Make sure to secure these private keys, as they are unencrypted and give
-access to the funds in the BitShares 0.9 network. You may loose your money if
-you are not an secure computer!
-
-#### Scripted extraction with Python (requires code audit)
-The following paragraphs will give an alternative (easier) way to dump the
-relevant private keys using a python script. If you are comfortable with the
-description above, you can safely skip the subsequent paragraph.
-
-A Python script located at
-[github](https://github.com/xeroc/bitshares-pytools/blob/master/tools/getbalancekeys.py)
-may help you to retrieve private keys for your balances.
-You need to modify the first few lines of the script in order to get a
-connection to your BitShares daemon.
-
-    $ edit getbalancekeys.py
-        [...]
-    config.url    = "http://10.0.0.16:19988/rpc"
-    config.user   = 'rpc-user'
-    config.passwd = 'rpc-password'
-    config.wallet = "default"
-        [...]
-
-If you don't know what to do with these, you certainly shouldn't run a witness
-just now. Instead, read about [RPC and the
-API](http://wiki.bitshares.org/index.php/BitShares/API) of BitShares.
-If you set up everything correctly, you may just run the python script and get
-the private keys associated to a given account name and the correspoinding
-balance:
-
-    $ python getbalancekeys.py
-    accountA   5xxxxxxxxxxxxxxxxxxxxxxxxxx<owner wif key>           2750.00000 GOLOS        
-    accountB   5xxxxxxxxxxxxxxxxxxxxxxxxxx<owner wif key>          11246.00000 GOLOS
-    accountB   5xxxxxxxxxxxxxxxxxxxxxxxxxx<owner wif key>          30000.00000 BROWNIE.PTS
-    accountB   5xxxxxxxxxxxxxxxxxxxxxxxxxx<owner wif key>            300.00000 USE
-    accountB   5xxxxxxxxxxxxxxxxxxxxxxxxxx<owner wif key>          65744.00000 NOTE
-    accountC   5xxxxxxxxxxxxxxxxxxxxxxxxxx<owner wif key>              3.00000 GOLD
-    [...]
-    accountA's owner key 5xxxxxxxxxxxxxxxxxxxxxxxxxx<balance wif key>  # 
-    accountB's owner key 5xxxxxxxxxxxxxxxxxxxxxxxxxx<balance wif key>  # 
-    accountC's owner key 5xxxxxxxxxxxxxxxxxxxxxxxxxx<balance wif key>  # 
-
-
-You will only need GOLOS balances and the one of your account owner keys in order
-to become a witness.
 
 ## BitShares 2.0 network (or Graphene testnet)
 
@@ -134,7 +36,7 @@ for the real network later. The genesis block can be downloaded (here)[https://d
 We first run the witness node without block production and connect it to the P2P
 network with the following command:
 
-    $ programs/witness_node/witness_node -s 104.200.28.117:61705 --rpc-endpoint 127.0.0.1:8090 --genesis-json aug-14-test-genesis.json
+    $ programs/golosd/golosd -s 104.200.28.117:61705 --rpc-endpoint 127.0.0.1:8090 --genesis-json aug-14-test-genesis.json
 
 The address `104.200.28.117` is one of the public seed nodes.
 
@@ -164,8 +66,6 @@ BitShares 2.0:
     [a transaction in json format]
     unlocked >>> list_my_accounts
     [{
-    "id": "1.2.15",
-    ...
     "name": <accountname>,
     ...
     ]

@@ -151,7 +151,7 @@ Role of Delegates
 -   A witness' spot in the round is assigned randomly at the end of the
     previous block
 
-How to become a delegate
+How to become a witness in Graphene
 ------------------------
 
 tutorials/witness-create

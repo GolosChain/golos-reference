@@ -7,28 +7,28 @@ This tutorial shows how to use the CLI wallet to perform stealth transfers in Bi
 Blind Accounts are not registered on the blockchain like the named accounts on BitShares.  Instead a blind account is nothing more than a labeled public key.  The label assigned to the key is only known to your wallet.  The first step is to create an blind account by giving the wallet a name and a "brainkey".  A "brainkey" is effectively the private key used by your account. 
 
     >>> create_blind_account alice "alice-brain-key"
-        "BTS7vbxtK1WaZqXsiCHPcjVFBewVj8HFRd5Z5XZDpN6Pvb2dZcMqK"
+        "GLS7vbxtK1WaZqXsiCHPcjVFBewVj8HFRd5Z5XZDpN6Pvb2dZcMqK"
 
 The result of this call is to print out the Public Key associated with blind account *alice*.  
 
 For the purpose of this test we will create two blind accounts in two different wallets (alice and bob).
 
     >>> create_blind_account bob "bob-brain-key"
-        "BTS8HosMbp7tL614bFgqtXXownHykqASxwmnH9NrhAnvtTuVWRf1X"  
+        "GLS8HosMbp7tL614bFgqtXXownHykqASxwmnH9NrhAnvtTuVWRf1X"  
 
 Alice and Bob now each have their own account in their own wallet that isn't known to anyone else in the world.  They can view their blind accounts with the following command:
 
     >>> get_my_blind_accounts
     [[
     "alice",
-    "BTS7vbxtK1WaZqXsiCHPcjVFBewVj8HFRd5Z5XZDpN6Pvb2dZcMqK"
+    "GLS7vbxtK1WaZqXsiCHPcjVFBewVj8HFRd5Z5XZDpN6Pvb2dZcMqK"
     ]]
 
 ### Adding a Contact
 
-Suppose Alice wishes to make a payment to Bob, she must first ask Bob for his account public key, BTS8HosMbp7tL614bFgqtXXownHykqASxwmnH9NrhAnvtTuVWRf1X.   Then she can assign a label to it in her wallet.  In this case she will record bob's key as "bobby".
+Suppose Alice wishes to make a payment to Bob, she must first ask Bob for his account public key, GLS8HosMbp7tL614bFgqtXXownHykqASxwmnH9NrhAnvtTuVWRf1X.   Then she can assign a label to it in her wallet.  In this case she will record bob's key as "bobby".
 
-    >>> set_key_label BTS8HosMbp7tL614bFgqtXXownHykqASxwmnH9NrhAnvtTuVWRf1X bobby
+    >>> set_key_label GLS8HosMbp7tL614bFgqtXXownHykqASxwmnH9NrhAnvtTuVWRf1X bobby
 
    
 ### Transferring to a Stealth Balance 

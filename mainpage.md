@@ -27,4 +27,4 @@ Welcome to Golos Blockchain developer documentation! {#mainpage}
 
 ### Witnesses
 * [How to become an active witness in BitShares 2.0](how_to_become_an_active_witness_in_BitShares_2.0)
-* [How to setup your witness for test net (Ubuntu 14.04)](how_to_setup_your_witness_for_test_network.md)
+* [How to setup your witness for test net (Ubuntu 14.04)](witness_test_network_tutorial.md)

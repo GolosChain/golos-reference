@@ -1,4 +1,3 @@
-
 How to use fc async to do recurring tasks
 -----------------------------------------
 
@@ -14,7 +13,7 @@ The file `operations.hpp` documents the available operations, and `database_fixt
 
 Tests also show the way to do many things, but are often cluttered with code that generates corner cases to try to break things in every possible way.
 
-Visitors are at the end of `operations.hpp` after the large typedef for `operation` as a `static_variant`.  TODO:  They should be refactored into a separate header.
+Visitors are at the end of `operations.hpp` after the large typedef for `operation` as a `static_variant`. 
 
 Downcasting stuff
 -----------------
