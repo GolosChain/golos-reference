@@ -249,7 +249,7 @@ You probably need to mount it, and if its size is smaller than 12G, you should r
 At this point, you should be ready to go. You can start golosd with:
 `./golosd --shared-file-dir /run/shm`
 
-The first time you run golosd with the "/run/shm" method, you will need to:
+The first time you run golosd with the `/run/shm` method, you will need to:
 
 Copy shared_memory.bin and shared_memory.meta files from your data folder to `/run/shm`
 (default data folder: `witness_node_data_dir/blockchain`)
