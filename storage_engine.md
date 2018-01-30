@@ -233,7 +233,7 @@ Another option is to try to ditch Disk I/O issue entirely by storing the memory 
 
 I find this method funny because pre-v0.16.0 and so pre-chainbase, golosd used to store the blockchain-state in RAM. With v0.16.0 and the introduction of chainbase, devs decided (for good reasons) to change the architecture and store the blockchain-state to disk instead, through a memory mapped file.
 
-The suggestion is to take that file and put it back on RAM. This is easy to do, thanks to the --shared-file-dir parameter that allows you to specify the directory to use for the mapped files.
+The suggestion is to take that file and put it back on RAM. This is easy to do, thanks to the `--shared-file-dir parameter` that allows you to specify the directory to use for the mapped files.
 
 ##### How To
 For a witness node built as low_memory_node and with only the witness plugin activated, it is recommended to have:
@@ -247,12 +247,12 @@ You probably need to mount it, and if its size is smaller than 12G, you should r
 `sudo mount -o remount,size=12G /run/shm`
 
 At this point, you should be ready to go. You can start golosd with:
-./golosd --shared-file-dir /run/shm
+`./golosd --shared-file-dir /run/shm`
 
 The first time you run golosd with the "/run/shm" method, you will need to:
 
-Copy shared_memory.bin and shared_memory.meta files from your data folder to /run/shm
-(default data folder: witness_node_data_dir/blockchain)
+Copy shared_memory.bin and shared_memory.meta files from your data folder to `/run/shm`
+(default data folder: `witness_node_data_dir/blockchain`)
 or else
 
-Start golosd forcing a replay that will rebuild the mapped files from your blockchain data (block_log file): ./golosd --shared-file-dir /run/shm --replay
+Start golosd forcing a replay that will rebuild the mapped files from your blockchain data (block_log file): `./golosd --shared-file-dir /run/shm --replay`
