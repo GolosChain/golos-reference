@@ -213,9 +213,22 @@ This will only build `golosd`.
 
 - Windows build instructions do not yet exist.
 
-- The developers normally compile with gcc and clang. These compilers should
-  be well-supported.
-- Community members occasionally attempt to compile the code with mingw,
-  Intel and Microsoft compilers. These compilers may work, but the
-  developers do not use them. Pull requests fixing warnings / errors from
-  these compilers are accepted.
+- The developers normally compile with gcc and clang. These compilers should be well-supported.
+- Community members occasionally attempt to compile the code with mingw, Intel and Microsoft compilers. These compilers may work, but the developers do not use them. Pull requests fixing warnings / errors from these compilers are accepted.
+
+## Building with Docker
+
+Golos Docker files contained in /share/golosd/docker are departed into a couple of sections:
+
+* Release container build files
+* Debug container build files
+
+Release container build files' purpose is to build the main Golos Blockchain network (as seen on [https://golos.io](https://golos.io)). Debug container build files' allows to create test network (as seen on [https://testnet.golos.io](https://testnet.golos.io)) daemon container.
+
+Typical usage for branch golos-v0.17.0 is:
+
+    docker build -t goloschain/golos_testnet:0.17.0 -f share/golosd/docker/debug/Dockerfile .
+    
+or
+    
+    docker build -t goloschain/golos:0.17.0 -f share/golosd/docker/release/Dockerfile .

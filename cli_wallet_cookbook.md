@@ -3,7 +3,7 @@
 
 Right now, there is no public testnet, so the only way to test is to run your
 own private network.  To do this, launch a witness node to generate blocks.  In
-the directory where you built your graphene distribution:
+the directory where you built your Graphene distribution:
 
 ````
 cd programs/golosd
