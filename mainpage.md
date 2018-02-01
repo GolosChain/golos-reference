@@ -63,7 +63,8 @@ This particular documentation contains generic description of principles the bus
 
 ### Market
 
-
+* [Decentralized Exchange](market/dex.md)
+* [Margin Mechanics](market/dex_margin_mechanics.md)
 
 ## Contribution
 

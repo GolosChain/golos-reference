@@ -79,4 +79,3 @@ pubkey derived above and let our account `myfunds` pay the fee::
 >
 > Note that in order to register an account, the registrar (here:
 > `myfunds`) needs to be a **lifetime member**!
-

@@ -28,7 +28,7 @@ Creation
 
 Prediction markets are assets that trade freely and can be borrowed from
 the market at a 1:1 ratio with the backing asset (which could be any
-other asset, including BTS, USD, GOLD).
+other asset, including GOLOS, USD, GOLD).
 
 The technical details are described in a separate tutorial:
 
@@ -78,20 +78,20 @@ you should **not** buy them at the market, but instead **borrow** them
 from the network by paying collateral at a 1:1 ratio.
 
 For example, in the PM.PRESIDENT2016 if you want to bet on a negative
-outcome with 100k BTS, you can borrow 100k PM.PRESIDENT2016 by paying
-100k BTS to the network.
+outcome with 100k GOLOS, you can borrow 100k PM.PRESIDENT2016 by paying
+100k GOLOS to the network.
 
 > **note**
 >
 > Since PM-Assets can technically be pegged by any other asset,
-> :   you may need to pay USD (or anything else) instead of BTS.
+> :   you may need to pay USD (or anything else) instead of GOLOS.
 >
 Once you borrowed the token, you can sell them at any price between 0
 and 1. If you thing the probability of a negative outcome is 20%, you
 should consider selling your tokens at 0.2.
 
 If the bet resolves negatively (price feed of 0), your debts is worth
-debt = amount \* price = 0 BTS, you can reclaim your collateral at zero
+debt = amount \* price = 0 GOLOS, you can reclaim your collateral at zero
 cost, and get to keep 20% profits from selling the token at 0.2. If
 instead the bet resolves positively and you sold all tokens, you cannot
 close your borrow position to redeem your collateral. However, your
@@ -109,16 +109,10 @@ corresponding percentage of the collateral.
     borrowed in the **GUI/web wallet** by using the Borrow x button in
     the market.
 
-    ![Borrow PM-Asset](../user_guide/pm-borrow-btn.png)
-
 Resolving
 ---------
 
 A price feed needs to be published for the prediction market by the
 issuer or feed producer. It is essentially a global settlement which
 will set the parameters of the asset such that the holders of the asset
-can settle at the outcome of the bet (0, or 1). The details are shown in
-the tutorial:
-
--   ../tutorials/pm-close-manual
-
+can settle at the outcome of the bet (0, or 1).

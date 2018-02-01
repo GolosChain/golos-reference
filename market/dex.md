@@ -45,7 +45,7 @@ or only partially.
     as USD, EUR, CNY, etc. in the wallet. These digital tokens represent
     the same value as their underlaying physical asset. Hence 1 USD in
     this wallet is worth \$1 and can be redeemed as such. Any of these
-    tokens is backed by Golos' company shares (BTS) being locked up
+    tokens is backed by Golos' company shares (GOLOS) being locked up
     as collateral and being available for settlement at its current
     price.
 

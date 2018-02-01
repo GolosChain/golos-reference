@@ -7,7 +7,7 @@ terms used by the DEX and how trading pairs are presented.
 Pairs
 -----
 
-In BitShares, almost any asset can be traded with all other assets. Once
+In Golos, almost any asset can be traded with all other assets. Once
 we have picked two assets, we usually refer to a *market pair*. For
 instance, we can trade USD against EUR in the USD:EUR pair.
 
@@ -28,18 +28,10 @@ vary depending on the wallet provider. Further markets can be added
 using the *Find Markets* tab. Adding a *Star* to your favorite markets
 will make it appear in your list of default markets.
 
-![Market overview](../user_guide/dex-trading-markets.png)
-
 Market
 ------
 
-When entering a market, you will presented with either the market depth
-
-![Trading market depth](../user_guide/dex-trading-overview.png)
-
-... or the price chart depending on your settings.
-
-![Trading price chart](../user_guide/dex-trading-price-chart.png)
+When entering a market, you will presented with either the market depth or the price chart depending on your settings.
 
 You can switch between your views by pressing the corresponding button
 as highlighted below.
@@ -71,8 +63,6 @@ need to define a *price* and an *amount* to sell/buy. The cost for this
 order will be calculated automatically. Note that there will be an
 additional fee required to actually place the order.
 
-![Individual areas of the trading dialog](../user_guide/dex-trading-explained.png)
-
 Once the order is filled (i.e. someone sold/bought your offer), your
 account will be credited by the corresponding asset.
 
@@ -81,16 +71,10 @@ Unfilled orders can be canceled at any time.
 Order Matching
 --------------
 
-BitShares 2.0 matches orders on a first-come, first-serve basis and
+Golos matches orders on a first-come, first-serve basis and
 gives the buyer the best price possible up to the limit (also known as
 "walking the book"). Rather than charging *unpredictable fees* from
 market overlap (as has been in the previous network), the network
 charges a defined fee based upon the size of the order matched and the
 assets involved. Each asset issuer gets an opportunity to configure
 their fees.
-
-Tutorial
---------
-
-../tutorials/dex-trading.rst
-
