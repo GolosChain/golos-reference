@@ -42,7 +42,11 @@ This particular documentation contains generic description of principles the bus
 
 ### Assets
 
-* [General](assets/tutorial.md)
+* [General](assets/assets.md)
+* [FAQ](assets/assets_faq.md)
+* [User Issued Assets](assets/uia.md)
+* [Market Pegged Assets](assets/mpa.md)
+* [Exchange Backed Assets](assets/eba.md)
 * [Resolvable BitAssets](assets/resolvable_bitassets.md)
 
 ### Content
