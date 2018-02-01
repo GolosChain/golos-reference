@@ -9,11 +9,13 @@ This particular documentation contains generic description of principles the bus
 
 ## Getting Started
 
-### Installation
+* [Getting Started](getting_started.md)
+
+## Installation
 
 * [Building](building.md)
 
-### Wallet
+## Wallet
 
 * [CLI Wallet Cookbook](cli_wallet_cookbook.md)
 * [Wallet Login Protocol](wallet_login_protocol.md)
@@ -21,41 +23,49 @@ This particular documentation contains generic description of principles the bus
 * [Wallet Argument Format](wallet_argument_format.md)
 * [Wallet 2-Factor Authentication Protocol](wallet_2_factor_authentication_protocol.md)
 
-### Protocol 
+## Protocol
 
-#### API
+### API
 
-* [General API](api/api.md)
-* [API Reference](api_reference.md)
+* [General](api/api.md)
 * [Websocket Subscriptions](api/websocket_subscriptions.md)
 
-#### Accounts
+### Accounts
 
-* [Tutorial](accounts/tutorial.md)
+* [Tutorial](accounts/account_create.md)
 
-#### Assets
+### Architecture
 
-* [Tutorial](assets/tutorial.md)
+* [General](architecture/general.md)
 
-#### Content
+### Assets
+
+* [General](assets/tutorial.md)
+* [Resolvable BitAssets](assets/resolvable_bitassets.md)
+
+### Content
 
 * [Tutorial](content/tutorial.md)
 * [Content Rewards](content/reward_system.md)
 
-#### Consensus
+### Consensus
 
 * [General Consensus](consensus/dpos.md)
 
 * [Tutorial](consensus/tutorial.md)
 * [Witness Scheduler](consensus/scheduler.md)
 
-### Contribution
+### Market
+
+
+
+## Contribution
 
 * [Git Guidelines](contribution/git_guildelines.md)
 * [Testing](contribution/testing.md)
 * [Developer Notes](contribution/developer_notes.md)
 
-### State Storage Architecture
+## State Storage Architecture
 
 * [Storage Engine](storage/storage_engine.md)
 * [Blockchain Objects](storage/blockchain_objects.md)

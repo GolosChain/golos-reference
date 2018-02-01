@@ -12,11 +12,10 @@ arbitrary transactions works as follows:
 3.  Add the required amount of fees
 4.  Sign and broadcast your transaction
 
-The corresponding API calls in the ../../integration/apps/cliwallet are:
+The corresponding API calls in the cli_wallet are:
 
     >>> begin_builder_transaction
     >>> add_operation_to_builder_transaction $HANDLE [opId, {operation}]
-    >>> set_fees_on_builder_transaction $HANDLE BTS
     >>> sign_builder_transaction $HANDLE true
 
 The begin\_builder\_transaction call returns a number we call `$HANDLE`
@@ -27,14 +26,6 @@ The opId and the JSON structure of the operation can be obtained with:
 
     get_prototype_operation <operation-type>
 
-The operation types available are:
-
-In practise, each operation has to pay a fee, and hence, each operation
-has to carry a `fee` member. When crafting a transaction, you now have
-the choice between either defining each fee for your operations
-individually, or you use `set_fees_on_builder_transaction` that sets the
-fee for each operation automatically to the chosen asset.
-
 Example: Transfer
 -----------------
 
@@ -43,15 +34,12 @@ A simple *transfer* takes the following form:
     get_prototype_operation transfer_operation
     [
       0,{
-        "fee": {
-          "amount": 0,
-          "asset_id": "1.3.0"
-        },
-        "from": "1.2.0",
-        "to": "1.2.0",
+        "from": "cyberfounder",
+        "to": "nemo1369",
         "amount": {
           "amount": 0,
-          "asset_id": "1.3.0"
+          "name": "GOLOS",
+          "precision": 3
         },
         "extensions": []
       }
@@ -62,11 +50,12 @@ and the core elements (removing fee) of this operation take the form:
 
 ``` {.sourceCode .js}
 {
-  "from": "1.2.0",
-  "to": "1.2.0",
+  "from": "cyberfounder",
+  "to": "nemo1369",
   "amount": {
     "amount": 0,
-    "asset_id": "1.3.0"
+    "name": "GOLOS",
+    "precision": 3
   }
 }
 ```
@@ -79,19 +68,20 @@ for readability):
     >>> add_operation_to_builder_transaction
          0
         [0,{
-               "from": "1.2.0",
-               "to": "1.2.0",
-               "amount": {
-                 "amount": 0,
-                 "asset_id": "1.3.0"
-               }
+               "from": "cyberfounder",
+                       "to": "nemo1369",
+                       "amount": {
+                         "amount": 0,
+                         "name": "GOLOS",
+                         "precision": 3
+                       },
            }]
 
 The corresponding `id` can be obtained with `get_account`, and
 `get_asset`.
 
-We add a fee payed in BTS, sign and broadcast the transaction (if
+We add a fee payed in GOLOS, sign and broadcast the transaction (if
 valid):
 
-    >>> set_fees_on_builder_transaction 0 BTS
+    >>> set_fees_on_builder_transaction 0 GOLOS
     >>> sign_builder_transaction 0 true
