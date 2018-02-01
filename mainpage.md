@@ -28,7 +28,9 @@ This particular documentation contains generic description of principles the bus
 ### API
 
 * [General](api/api.md)
+* [Transactions and Operations](https://developers.golos.io/golos-v0.17.0/d6/d7a/group__operations.html)
 * [Websocket Subscriptions](api/websocket_subscriptions.md)
+* [Construct Transaction](api/construct_transaction.md)
 
 ### Accounts
 
