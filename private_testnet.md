@@ -1,6 +1,5 @@
-
-Setting up private testnet
---------------------------
+Setting up private test network
+-------------------------------
 
 Genesis creation
 ----------------

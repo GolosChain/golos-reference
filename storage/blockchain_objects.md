@@ -1,5 +1,5 @@
-Objects
--------
+Blockchain Objects
+------------------
 
 In contrast to most cryptocurrency wallets, Golos has a different
 model to represent the blockchain, its transactions and accounts. This chapter

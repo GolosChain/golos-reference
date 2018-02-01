@@ -13,34 +13,50 @@ This particular documentation contains generic description of principles the bus
 
 * [Building](building.md)
 
-## Developer Guide
-
-### Architecture
-
-#### Storage Management
-* [Storage Engine](storage_engine.md)
-* [Blockchain Objects](blockchain_objects.md)
-
-#### Protocol 
-
-* [Accounts](accounts.md)
-* [Stealth Transfers](stealth_transfers.md)
-
-### Contributing
-* [General API](api.md)
-* [Websocket Subscriptions](websocket_subscriptions.md)
-* [Testing](testing.md)
-
 ### Wallet
+
 * [CLI Wallet Cookbook](cli_wallet_cookbook.md)
 * [Wallet Login Protocol](wallet_login_protocol.md)
 * [Wallet Merchant Protocol](wallet_merchant_protocol.md)
 * [Wallet Argument Format](wallet_argument_format.md)
 * [Wallet 2-Factor Authentication Protocol](wallet_2_factor_authentication_protocol.md)
 
-### Exchanges
-* [Monitoring Accounts](monitoring_accounts.md)
+### Protocol 
 
-### Witnesses
-* [How to become an active witness in BitShares 2.0](how_to_become_an_active_witness_in_BitShares_2.0)
-* [How to setup your witness for test net (Ubuntu 14.04)](witness_test_network_tutorial.md)
+#### API
+
+* [General API](api/api.md)
+* [API Reference](api_reference.md)
+* [Websocket Subscriptions](api/websocket_subscriptions.md)
+
+#### Accounts
+
+* [Tutorial](accounts/tutorial.md)
+
+#### Assets
+
+* [Tutorial](assets/tutorial.md)
+
+#### Content
+
+* [Tutorial](content/tutorial.md)
+* [Content Rewards](content/reward_system.md)
+
+#### Consensus
+
+* [General Consensus](consensus/dpos.md)
+
+* [Tutorial](consensus/tutorial.md)
+* [Witness Scheduler](consensus/scheduler.md)
+
+### Contribution
+
+* [Git Guidelines](contribution/git_guildelines.md)
+* [Testing](contribution/testing.md)
+* [Developer Notes](contribution/developer_notes.md)
+
+### State Storage Architecture
+
+* [Storage Engine](storage/storage_engine.md)
+* [Blockchain Objects](storage/blockchain_objects.md)
+

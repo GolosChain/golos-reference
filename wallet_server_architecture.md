@@ -48,5 +48,3 @@ The server should limit the number of wallet requests it accepts per IP address 
 ## Saving the Wallet Locally 
 
 The browser should cache the wallet data locally 
-
-

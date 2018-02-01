@@ -1,3 +1,5 @@
+## Developer git guidelines
+
 The git guidelines for Golos are influenced by the
 [Graphene](https://github.com/cryptonomex/graphene/wiki/How-we-use-version-control)
 git guidelines as well as [Git

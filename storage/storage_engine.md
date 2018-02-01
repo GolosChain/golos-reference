@@ -123,14 +123,14 @@ By default ChainBase provides no synchronization and has the same concurrency re
 boost::multi_index_container.  This means that two or more threads may read the database at the
 same time, but all writes must be protected by a mutex.  
 
-Multiple processes may open the same database if care is taken to use interpocess locking on the
+Multiple processes may open the same database if care is taken to use interprocess locking on the
 database.  
 
 ### Persistance 
 
 By default data is only flushed to disk upon request or when the program exits. So long as the program
 does not crash in the middle of a call to db.modify(), or db.create() the content of the
-database should remain in a consistant state. This means that you should minimize the complexity of the
+database should remain in a consistent state. This means that you should minimize the complexity of the
 lambdas used to create and/or modify state.
 
 If the operating system crashes or the computer loses power, then the database will be left in an undefined
