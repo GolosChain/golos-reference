@@ -59,7 +59,7 @@ This particular documentation contains generic description of principles the bus
 
 * [General Consensus](consensus/dpos.md)
 
-* [Tutorial](consensus/tutorial.md)
+* [Tutorial](consensus/witness.md)
 * [Witness Scheduler](consensus/scheduler.md)
 
 ### Market

@@ -1,6 +1,13 @@
-## Witness Tutorial
+## Witness
 
-This document serves as an introduction on how to become an actively block producing witness in in the GolosChain network. 
+This document serves as an introduction on how to become an actively block producing witness in in the Golos network.
+
+In Golos, the witnesses' job is to collect transactions, bundle them into a block, sign the block and broadcast it to the network. They essentially are the block producers for the underlying consensus
+mechanism.
+
+For each successfully constructed block, a witness is payed in shares that are taken from the limited reserves pool at a rate that is defined by the shareholders by means of approval voting.
+
+Witnesses - are network participants guarantee the data is safely handled. So we will consider starting own witness node.
 
  Currently active public test network is `https://testnet.golos.io` with WebSocket endpoint on `wss://ws.testnet.golos.io` and replication (seed) endpoint on `seed.testnet.golos.io`. 
  
@@ -11,7 +18,8 @@ This article purpose is to describe the witness initialization.
 For the main network we need to download the proper genesis block. The genesis block can be found in `share/golosd/snapshot5392323.json`.
 
 ### Run a node in the network
-Witnesses - are network participants guarantee the data is safely handled. So it is required first to run the node without block production and connect it to the P2P network with the following command in case of test network connection:
+
+It is required first to run the node without block production and connect it to the P2P network with the following command in case of test network connection:
 
     $ programs/golosd/golosd -s seed.testnet.golos.io --rpc-endpoint 127.0.0.1:8090
         
