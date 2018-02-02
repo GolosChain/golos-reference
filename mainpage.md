@@ -48,6 +48,7 @@ This particular documentation contains generic description of principles the bus
 * [Market Pegged Assets](assets/mpa.md)
 * [Exchange Backed Assets](assets/eba.md)
 * [Resolvable BitAssets](assets/resolvable_bitassets.md)
+* [Vesting](assets/vesting.md)
 
 ### Content
 
@@ -65,12 +66,16 @@ This particular documentation contains generic description of principles the bus
 
 * [Decentralized Exchange](market/dex.md)
 * [Margin Mechanics](market/dex_margin_mechanics.md)
+* [Shorting](market/dex_short.md)
+* [Trading](market/dex_trading.md)
+* [Prediction Markets](market/prediction_market.md)
 
 ## Contribution
 
 * [Git Guidelines](contribution/git_guildelines.md)
 * [Testing](contribution/testing.md)
 * [Developer Notes](contribution/developer_notes.md)
+* [Plugins General](contribution/plugin.md)
 
 ## State Storage Architecture
 
