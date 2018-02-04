@@ -1,8 +1,8 @@
 How to use fc async to do recurring tasks
 -----------------------------------------
 
-    _my_task = fc::async( callable, "My Task" );
-    _my_task = fc::schedule( callable, "My Task 2", exec_time );
+    _my_task = fc::async(callable, "My Task");
+    _my_task = fc::schedule(callable, "My Task 2", exec_time);
 
 Stuff to know about the code
 ----------------------------
