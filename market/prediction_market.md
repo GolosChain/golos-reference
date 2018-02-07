@@ -9,13 +9,12 @@ after the event being predicted resolves, thus a prediction market must
 always have the global\_settle permission enabled. The maximum price for
 global settlement or short sale of a prediction market asset is 1-to-1.
 
-> **note**
->
 > In the following, we denote a *positive outcome* as a
 > :   predication market that resolves to true (i.e. a price feed of 1)
 >     and a *negative outcome* to resolve to false (i.e. a price feed of
 >     0)
 >
+
 If the bet resolves to true (i.e. a price feed of 1), then the PM-asset
 can be settled release the collateral to the holder of the asset.
 
