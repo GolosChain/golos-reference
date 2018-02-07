@@ -1,4 +1,4 @@
-Golos reward system
+Content Reward System
 --------------------
 
 As discussed in the [Steem whitepaper](https://steem.io/SteemWhitePaper.pdf), content and curation rewards are 1 GOLOS per block, or 3.875% per year, whichever is greater. The current implementation rolls both content and curation rewards into a single accumulator called total_reward_fund_steem(available with the cli_wallet command info, the get_dynamic_global_properties RPC, or at the golosd.com alternate UI).
