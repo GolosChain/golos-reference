@@ -26,7 +26,7 @@ This O(R^2) behavior biases the system toward "winner-take-all", concentrating t
 
 We can define V-shares to be a function of R-shares, call it v-bar; the current implementation of v-bar is simply:
 
-```\bar{v}(R) = R^2```
+\bar{v}(R) = R^2
 
 This function has several desirable properties:
 
@@ -45,7 +45,7 @@ That is, our list of desirable properties should expand to include:
 Redefining the V-shares curve
 Fortunately, it is fairly simple to redefine v-bar by keeping the same curve, but shifting the point we consider the origin up and to the right until we get to a place with a positive slope. We can write a new definition of v-bar based on shifting s units (this reduces to the old definition when s = 0):
 
-``` \bar{v}(R) = (R+s)^2 - s^2 ```
+\bar{v}(R) = (R+s)^2 - s^2
 
 This v-bar retains desirable properties 1-6, but adds the additional desirable property P7' when s > 0. Of course V-shares are no longer equal to R-shares squared if we have s > 0, which explains why I'm calling them V-shares in this series of posts, instead of rshares2: The rshares2 name implies the s = 0 curve, which will no longer be used if my hardfork is adopted.
 
