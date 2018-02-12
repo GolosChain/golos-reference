@@ -786,6 +786,7 @@ INPUT                  = ../../../libraries/application \
                          ../../../libraries/protocol \
                          ../../../libraries/wallet \
                          ../../../libraries/plugins \
+                         ../../../libraries/network \
                          .
 
 # This tag can be used to specify the character encoding of the source files
